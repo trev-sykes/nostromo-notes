@@ -1,0 +1,408 @@
+/* Dashboard.module.css */
+.container {
+    min-height: 100vh;
+    background-color: #000000;
+    color: #4dff9e;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden !important;
+    line-height: 1.4;
+}
+
+/* Boot sequence styling */
+.bootScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.bootText {
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    color: #4dff9e;
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+/* CRT effects */
+.scanLines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg,
+            rgba(0, 255, 100, 0.11),
+            rgba(0, 255, 100, 0.11) 1px,
+            transparent 1px,
+            transparent 2px);
+    background-size: 100% 2px;
+    z-index: 2;
+}
+
+.screenFlicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-color: #000;
+    opacity: 0.05;
+    z-index: 3;
+    animation: flicker 4s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.05;
+    }
+
+    5% {
+        opacity: 0.05;
+    }
+
+    6% {
+        opacity: 0.08;
+    }
+
+    10% {
+        opacity: 0.05;
+    }
+
+    11% {
+        opacity: 0.06;
+    }
+
+    30% {
+        opacity: 0.05;
+    }
+
+    31% {
+        opacity: 0.07;
+    }
+
+    32% {
+        opacity: 0.05;
+    }
+
+    67% {
+        opacity: 0.05;
+    }
+
+    68% {
+        opacity: 0.09;
+    }
+
+    69% {
+        opacity: 0.05;
+    }
+
+    70% {
+        opacity: 0.05;
+    }
+
+    71% {
+        opacity: 0.07;
+    }
+
+    72% {
+        opacity: 0.05;
+    }
+
+    95% {
+        opacity: 0.05;
+    }
+
+    96% {
+        opacity: 0.08;
+    }
+
+    97% {
+        opacity: 0.05;
+    }
+
+    100% {
+        opacity: 0.05;
+    }
+}
+
+/* Terminal wrapper */
+.terminalWrapper {
+    max-width: 50rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Terminal header */
+.terminalHeader {
+    border-bottom: 1px solid #14583d;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.terminalTitle {
+    font-size: 1.25rem;
+    letter-spacing: 0.12rem;
+    margin: 0;
+    font-weight: normal;
+}
+
+.companyName {
+    color: #ffb01f;
+}
+
+.terminalInfo {
+    font-size: 0.75rem;
+    text-align: right;
+}
+
+.authorized {
+    color: #ffb01f;
+}
+
+.headerBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.moduleVersion {
+    font-size: 0.875rem;
+}
+
+.terminalDate {
+    font-size: 0.75rem;
+}
+
+/* Command Panel */
+.commandPanel {
+    border: 1px solid #14583d;
+    background-color: rgba(0, 10, 4, 0.7);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.panelLabel {
+    font-size: 0.75rem;
+    color: #14a76c;
+    margin-bottom: 0.75rem;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.promptSymbol {
+    color: #14a76c;
+    margin-right: 0.5rem;
+}
+
+.input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: #4dff9e;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+}
+
+.input::placeholder {
+    color: rgba(77, 255, 158, 0.4);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.cursor {
+    color: #4dff9e;
+    animation: blink 1.06s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+.storeButton,
+.purgeButton {
+    padding: 0.4rem 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    cursor: pointer;
+    letter-spacing: 0.05rem;
+    transition: all 0.2s ease;
+}
+
+.storeButton {
+    border: 1px solid #14583d;
+    background-color: rgba(20, 88, 61, 0.3);
+    color: #4dff9e;
+}
+
+.purgeButton {
+    border: 1px solid #583d14;
+    background-color: rgba(88, 61, 20, 0.3);
+    color: #ffb01f;
+}
+
+.storeButton:hover {
+    background-color: rgba(20, 88, 61, 0.5);
+}
+
+.purgeButton:hover {
+    background-color: rgba(88, 61, 20, 0.5);
+}
+
+/* Data Panel */
+.dataPanel {
+    border: 1px solid #14583d;
+    background-color: rgba(0, 10, 4, 0.7);
+}
+
+.dataPanelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #14583d;
+}
+
+.entryCount {
+    font-size: 0.75rem;
+    color: #14a76c;
+}
+
+.emptyState {
+    padding: 2rem;
+    text-align: center;
+    color: rgba(77, 255, 158, 0.5);
+    font-style: italic;
+}
+
+.entriesList {
+    display: flex;
+    flex-direction: column;
+}
+
+.entryItem {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(20, 88, 61, 0.5);
+    transition: background-color 0.2s ease;
+}
+
+.entryItem:last-child {
+    border-bottom: none;
+}
+
+.entryItem:hover {
+    background-color: rgba(20, 88, 61, 0.15);
+}
+
+.entryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.entryId {
+    font-size: 0.75rem;
+    color: #ffb01f;
+}
+
+.deleteButton {
+    background: none;
+    border: none;
+    color: #ff3333;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.entryItem:hover .deleteButton {
+    opacity: 1;
+}
+
+.entryText {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(20, 88, 61, 0.7);
+    word-break: break-word;
+}
+
+/* Terminal Footer */
+.terminalFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0.25rem;
+    border-top: 1px solid #14583d;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: #14a76c;
+}
+
+.connectionStatus {
+    animation: blink 2s infinite;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .headerTop {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .terminalInfo {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+
+    .headerBottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .terminalDate {
+        margin-top: 0.25rem;
+    }
+
+    .buttonGroup {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
