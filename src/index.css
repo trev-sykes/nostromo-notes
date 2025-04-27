@@ -1,3 +1,30 @@
-html {
+:root {
+  --font-family: 'Courier New', monospace;
+
+  --background-color: #000;
+  --text-color: #4dff9e;
+
+  --panel-background-color: rgba(0, 10, 4, 0.7);
+
+  --store-button-background-color: rgba(20, 88, 61, 0.3);
+  --purge-button-background-color: rgba(88, 61, 20, 0.3);
+  --flicker-color: #666;
+  --accent-color: #14a76c;
+  --border-color: #14583d;
+  --authorized-color: #ffb01f;
+  --delete-color: #ff3333;
+
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   overflow: hidden !important;
 }

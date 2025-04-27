@@ -8,6 +8,7 @@ import { nanoid } from "nanoid"; // we'll use this to generate unique IDs
 interface NoteState {
     notes: Map<string, string>;
     writeNote: (note: string) => void;
+    modifyNote: (id: string, newNote: string) => void;
     deleteNote: (id: string) => void;
     clearNotes: () => void;
 }
@@ -26,6 +27,16 @@ const useNoteStore = create<NoteState>()(
                     updatedNotes.set(nanoid(), newNote);
                     return { notes: updatedNotes };
                 });
+            },
+            modifyNote: (id: string, newNote: string) => {
+                set((state) => {
+                    const updatedNotes = new Map(state.notes);
+                    if (!updatedNotes.has(id)) {
+                        throw new Error("No note found for given ID");
+                    };
+                    updatedNotes.set(id, newNote);
+                    return ({ notes: updatedNotes });
+                })
             },
 
             deleteNote: (id: string) => {

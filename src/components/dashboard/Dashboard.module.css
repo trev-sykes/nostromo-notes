@@ -1,13 +1,13 @@
 /* Dashboard.module.css */
 .container {
     min-height: 100vh;
-    background-color: #000000;
-    color: #4dff9e;
-    padding: 1rem;
-    font-family: 'Courier New', monospace;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: var(--space-sm);
+    font-family: var(--font-family);
     position: relative;
-    overflow: hidden !important;
     line-height: 1.4;
+    overflow: hidden;
 }
 
 /* Boot sequence styling */
@@ -16,13 +16,13 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 1rem;
+    padding: var(--space-sm);
 }
 
 .bootText {
     font-size: 0.9rem;
     white-space: pre-wrap;
-    color: #4dff9e;
+    color: var(--text-color);
     max-width: 32rem;
     margin: 0 auto;
 }
@@ -51,7 +51,7 @@
     right: 0;
     bottom: 0;
     pointer-events: none;
-    background-color: #000;
+    background-color: var(--flicker-color);
     opacity: 0.05;
     z-index: 3;
     animation: flicker 4s infinite;
@@ -133,7 +133,7 @@
 
 /* Terminal wrapper */
 .terminalWrapper {
-    max-width: 50rem;
+    max-width: 1100px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -141,9 +141,9 @@
 
 /* Terminal header */
 .terminalHeader {
-    border-bottom: 1px solid #14583d;
-    padding-bottom: 0.75rem;
-    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--space-xs);
+    margin-bottom: var(--space-md);
 }
 
 .headerTop {
@@ -161,16 +161,16 @@
 }
 
 .companyName {
-    color: #ffb01f;
+    color: var(--authorized-color);
 }
 
 .terminalInfo {
-    font-size: 0.75rem;
+    font-size: var(--space-xs);
     text-align: right;
 }
 
 .authorized {
-    color: #ffb01f;
+    color: var(--authorized-color);
 }
 
 .headerBottom {
@@ -184,31 +184,31 @@
 }
 
 .terminalDate {
-    font-size: 0.75rem;
+    font-size: var(--space-xs);
 }
 
 /* Command Panel */
 .commandPanel {
-    border: 1px solid #14583d;
-    background-color: rgba(0, 10, 4, 0.7);
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--panel-background-color);
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
 .panelLabel {
-    font-size: 0.75rem;
-    color: #14a76c;
-    margin-bottom: 0.75rem;
+    font-size: var(--space-xs);
+    color: var(--accent-color);
+    margin-bottom: var(--space-xs);
 }
 
 .inputWrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-sm);
 }
 
 .promptSymbol {
-    color: #14a76c;
+    color: var(--accent-color);
     margin-right: 0.5rem;
 }
 
@@ -216,9 +216,9 @@
     flex: 1;
     background-color: transparent;
     border: none;
-    color: #4dff9e;
-    font-family: 'Courier New', monospace;
-    font-size: 1rem;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--space-sm);
     padding: 0.25rem 0;
 }
 
@@ -231,7 +231,7 @@
 }
 
 .cursor {
-    color: #4dff9e;
+    color: var(--text-color);
     animation: blink 1.06s step-end infinite;
 }
 
@@ -249,13 +249,13 @@
 
 .buttonGroup {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-sm);
 }
 
 .storeButton,
 .purgeButton {
-    padding: 0.4rem 1rem;
-    font-family: 'Courier New', monospace;
+    padding: 0.4rem var(--space-sm);
+    font-family: var(--font-family);
     font-size: 0.875rem;
     cursor: pointer;
     letter-spacing: 0.05rem;
@@ -263,15 +263,15 @@
 }
 
 .storeButton {
-    border: 1px solid #14583d;
-    background-color: rgba(20, 88, 61, 0.3);
-    color: #4dff9e;
+    border: 1px solid var(--border-color);
+    background-color: var(--store-button-background-color);
+    color: var(--text-color);
 }
 
 .purgeButton {
     border: 1px solid #583d14;
-    background-color: rgba(88, 61, 20, 0.3);
-    color: #ffb01f;
+    background-color: var(--purge-button-background-color);
+    color: var(--authorized-color);
 }
 
 .storeButton:hover {
@@ -284,21 +284,23 @@
 
 /* Data Panel */
 .dataPanel {
-    border: 1px solid #14583d;
-    background-color: rgba(0, 10, 4, 0.7);
+    max-height: 500px;
+    border: 1px solid var(--border-color);
+    background-color: var(--panel-background-color);
+    overflow: auto !important;
 }
 
 .dataPanelHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #14583d;
+    padding: var(--space-xs) var(--space-sm);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .entryCount {
-    font-size: 0.75rem;
-    color: #14a76c;
+    font-size: var(--space-xs);
+    color: var(--accent-color);
 }
 
 .emptyState {
@@ -314,7 +316,7 @@
 }
 
 .entryItem {
-    padding: 1rem;
+    padding: var(--space-sm);
     border-bottom: 1px solid rgba(20, 88, 61, 0.5);
     transition: background-color 0.2s ease;
 }
@@ -335,29 +337,54 @@
 }
 
 .entryId {
-    font-size: 0.75rem;
-    color: #ffb01f;
+    font-size: var(--space-xs);
+    color: var(--authorized-color);
 }
 
-.deleteButton {
+.button {
     background: none;
     border: none;
-    color: #ff3333;
-    font-size: 0.75rem;
+    font-size: var(--space-xs);
     cursor: pointer;
     font-family: 'Courier New', monospace;
     opacity: 0;
     transition: opacity 0.2s ease;
+    margin-right: 0.5rem;
 }
 
-.entryItem:hover .deleteButton {
+.deleteButton {
+    color: var(--delete-color);
+}
+
+.modifyButton {
+    color: var(--authorized-color);
+}
+
+.confirmButton {
+    color: var(--accent-color);
+}
+
+.entryItem:hover .button,
+.entryItem:hover .deleteButton,
+.entryItem:hover .modifyButton {
     opacity: 1;
 }
 
 .entryText {
-    padding-left: 1rem;
+    padding-left: var(--space-sm);
+    color: var(--text-color);
     border-left: 2px solid rgba(20, 88, 61, 0.7);
     word-break: break-word;
+}
+
+.entryTextInput {
+    color: var(--text-color);
+    background: rgba(20, 88, 61, 0.7);
+    border: none;
+}
+
+.entryTextInput:focus {
+    outline: 1px solid var(--authorized-color);
 }
 
 /* Terminal Footer */
@@ -365,11 +392,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 0.25rem;
-    border-top: 1px solid #14583d;
-    margin-top: 1.5rem;
-    font-size: 0.75rem;
-    color: #14a76c;
+    padding: var(--space-xs) 0.25rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--space-md);
+    font-size: var(--space-xs);
+    color: var(--accent-color);
 }
 
 .connectionStatus {
@@ -379,7 +406,7 @@
 /* Mobile Optimizations */
 @media (max-width: 480px) {
     .container {
-        padding: 0.75rem;
+        padding: var(--space-xs);
     }
 
     .headerTop {
