@@ -313,6 +313,7 @@
 .entriesList {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll !important;
 }
 
 .entryItem {
@@ -492,5 +493,9 @@
     .buttonGroup {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .entriesList {
+        max-height: 250px;
     }
 }

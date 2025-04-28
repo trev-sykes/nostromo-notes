@@ -24,6 +24,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: var(--authorized-color) var(--background-color);
+  /* Firefox */
+}
+
+/* Webkit browsers (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+  width: 8px;
+  /* or whatever size you want */
+  height: 8px;
+  /* for horizontal scrollbar */
+}
+
+/* The draggable part */
+*::-webkit-scrollbar-thumb {
+  background-color: var(--authorized-color);
+  border-radius: 0;
+  /* <-- no rounded edges */
+}
+
+/* The background track */
+*::-webkit-scrollbar-track {
+  background-color: var(--background-color);
 }
 
 body {
