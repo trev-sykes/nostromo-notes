@@ -19,6 +19,7 @@
   --space-md: 1.5rem;
 }
 
+
 * {
   margin: 0;
   padding: 0;
@@ -27,4 +28,34 @@
 
 body {
   overflow: hidden !important;
+}
+
+
+/* Alien Nostromo Light Theme */
+.nostromoLight {
+  --font-family: 'Courier New', monospace;
+
+  --background-color: #f4f8f5;
+  --text-color: #0a2f23;
+
+  --panel-background-color: rgba(224, 238, 229, 0.7);
+
+  --store-button-background-color: rgba(20, 88, 61, 0.15);
+  --purge-button-background-color: rgba(88, 61, 20, 0.15);
+
+  --flicker-color: #ccc;
+  --accent-color: #227a55;
+  --border-color: #227a55;
+  --authorized-color: #c08400;
+  --delete-color: #cc2222;
+
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+}
+
+/* Optional: Adjust flicker effect in light mode to be less intense */
+.nostromoLight .screenFlicker {
+  background-color: var(--flicker-color);
+  opacity: 0.02;
 }

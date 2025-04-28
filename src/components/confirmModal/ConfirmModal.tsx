@@ -12,7 +12,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({ action, onConfirm, o
         <div className={styles.modalOverlay}>  {/* Add a modal overlay for better UI */}
             <div className={styles.modalContent}>
                 <h1>Confirmation</h1>
-                <h2>Are you sure you want to {actionText} this item?</h2>
+                <h2>Are you sure you want to {actionText == 'Purge' ? `${actionText} all items?` : `${actionText} this item?`}</h2>
                 <div className={styles.buttonGroup}>
                     <button onClick={onCancel} className={`${styles.button} ${styles.cancel}`}>
                         [CANCEL]

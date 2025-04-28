@@ -377,15 +377,69 @@
     word-break: break-word;
 }
 
-.entryTextInput {
-    color: var(--text-color);
-    background: rgba(20, 88, 61, 0.7);
-    border: none;
+.entryText span {
+    cursor: default;
 }
 
-.entryTextInput:focus {
-    outline: 1px solid var(--authorized-color);
+.toggleLightContainer {
+    margin-top: 0.15rem;
+    transform: translateX(115px);
 }
+
+.toggleLight {
+    width: 25px;
+    height: 15px;
+    background-color: #222;
+    border: 2px solid #6aff6a;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    box-shadow: 0 0 6px #6aff6a33;
+}
+
+.toggleLight:hover {
+    background-color: #2a2a2a;
+    border-color: #6aff6a;
+}
+
+.toggleLight.on {
+    background-color: #6aff6a;
+    border-color: #00ff00;
+    box-shadow: 0 0 6px #00ff00aa;
+}
+
+.toggleIndicator {
+    width: 7px;
+    height: 7px;
+    background-color: black;
+    border: 2px solid #6aff6a;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translate(0, -50%);
+    transition: left 0.3s;
+}
+
+.toggleLight.on .toggleIndicator {
+    left: 13px;
+    background-color: #00ff00;
+    border-color: black;
+}
+
+.entryTextInput {
+    color: inherit;
+    background: transparent;
+    border: none;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
 
 /* Terminal Footer */
 .terminalFooter {
@@ -401,6 +455,13 @@
 
 .connectionStatus {
     animation: blink 2s infinite;
+}
+
+@media (max-width: 600px) {
+    .toggleLightContainer {
+        margin-top: 0.15rem;
+        transform: translateX(0);
+    }
 }
 
 /* Mobile Optimizations */

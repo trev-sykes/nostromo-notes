@@ -10,7 +10,7 @@ export const Dashboard = () => {
     const [bootSequence, setBootSequence] = useState(true);
     const [bootText, setBootText] = useState("");
     const fullBootText = "WEYLAND-YUTANI CORP.\nMU/TH/UR 6000\nNOTES MODULE V2.4.0\nINITIALIZING...";
-
+    const [isNostromoLight, setIsNostromoLight] = useState<boolean>(false);
     // Track the note being edited
     const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
     const [editedText, setEditedText] = useState<string>("");
@@ -92,7 +92,7 @@ export const Dashboard = () => {
 
     if (bootSequence) {
         return (
-            <div className={styles.container}>
+            <div className={`${styles.container} ${isNostromoLight ? "nostromoLight" : ""}`}>
                 <div className={styles.bootScreen}>
                     <pre className={styles.bootText}>
                         {bootText}{cursor ? "_" : " "}
@@ -103,7 +103,7 @@ export const Dashboard = () => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${isNostromoLight ? "nostromoLight" : ""}`}>
             <div className={styles.scanLines}></div>
             <div className={styles.screenFlicker}></div>
 
@@ -116,6 +116,14 @@ export const Dashboard = () => {
                         <div className={styles.terminalInfo}>
                             <div>TERMINAL: USR.276.11</div>
                             <div className={styles.authorized}>USER: AUTHORIZED</div>
+                            <div className={styles.toggleLightContainer}>
+                                <div
+                                    className={`${styles.toggleLight} ${isNostromoLight ? styles.on : ''}`}
+                                    onClick={() => setIsNostromoLight(prev => !prev)}
+                                >
+                                    <div className={styles.toggleIndicator} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.headerBottom}>
@@ -177,7 +185,11 @@ export const Dashboard = () => {
                                             {editingNoteId === id ? (
                                                 <>
                                                     <button
-                                                        onClick={() => handleConfirmEdit(id)}
+                                                        onClick={() => {
+                                                            handleModalDecision('modify')
+                                                            handleConfirmEdit(id)
+                                                        }
+                                                        }
                                                         className={`${styles.button} ${styles.confirmButton}`}
                                                     >
                                                         [CONFIRM]
@@ -228,16 +240,18 @@ export const Dashboard = () => {
                     <div>SYSTEM STATUS: NOMINAL</div>
                     <div className={styles.connectionStatus}>CONNECTION SECURE</div>
                 </footer>
-            </div>
+            </div >
 
             {/* Modal for Confirmation */}
-            {isModalVisible && (
-                <ConfirmModal
-                    action={modalAction === "delete" ? 'delete' : 'purge'}
-                    onConfirm={handleModalConfirm}
-                    onCancel={handleModalCancel}
-                />
-            )}
-        </div>
+            {
+                isModalVisible && (
+                    <ConfirmModal
+                        action={modalAction === "delete" ? 'delete' : modalAction == 'modify' ? 'modify' : 'purge'}
+                        onConfirm={handleModalConfirm}
+                        onCancel={handleModalCancel}
+                    />
+                )
+            }
+        </div >
     );
 };
